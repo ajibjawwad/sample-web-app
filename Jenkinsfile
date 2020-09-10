@@ -4,8 +4,7 @@ pipeline {
     environment{
       def mvnHome = tool name: 'maven3', type: 'maven'
       def mvnCMD = "${mvnHome}/bin/mvn"
-      def tfHome = tool name: 'Ansible'
-        env.PATH = "${tfHome}:${env.PATH}"
+      def ansible = tool name: 'Ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
     }
 
     stages {
@@ -33,6 +32,12 @@ pipeline {
                 sh "docker login -u jebro -p ${dockerpwd}"
               }
               sh 'docker push jebro/webapps:1.0'
+            }
+        }
+
+        stage('Ansible Check'){
+            steps{
+              sh 'ansible --version'
             }
         }
 
