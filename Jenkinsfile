@@ -4,7 +4,7 @@ pipeline {
     environment{
       def mvnHome = tool name: 'maven3', type: 'maven'
       def mvnCMD = "${mvnHome}/bin/mvn"
-      def ansible = tool name: 'Ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
+      def tfHome = tool name: 'Ansible'
     }
 
     stages {
