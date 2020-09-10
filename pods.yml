@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapps-project
+  name: webapps-project-deployment
+  labels:
+    role: webapps
 spec:
   selector:
     matchLabels:
-      app: webapps
+      role: webapps
   replicas: 2
 
   template:
     metadata:
       labels:
-        app: webapps
+        role: webapps
 
     spec:
       containers:
