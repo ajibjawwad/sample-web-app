@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-webapps-project
+  name: webapps-service
   labels:
-    app: sample-webapps-project
+    app: webapps-project
 spec:
   selector:
-    app: sample-webapps-project
+    app: webapps-project
   type: LoadBalancer
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 31200  
+      nodePort: 8888
