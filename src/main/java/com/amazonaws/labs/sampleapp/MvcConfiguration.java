@@ -89,7 +89,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
             }
             else
             {
-              configurer.setLocations(new PathMatchingResourcePatternResolver().getResources("file:/var/codedeploy/tomcat-sample/env.properties"));
+              configurer.setLocations(new PathMatchingResourcePatternResolver().getResources("file:/usr/local/tomcat/env.properties"));
             }
         } catch (Exception e) {
             //throw new RuntimeException("Failed to load resources.", e);
