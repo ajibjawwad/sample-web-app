@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-webapps-deployment
+  labels:
+    role: sample-webapps-project
+spec:
+  selector:
+    matchLabels:
+      app: sample-webapps-project
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        role: sample-webapps-project
+    spec:
+      containers:
+      - name: sample-webapps-project
+        image: jebro/webapps
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
