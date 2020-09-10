@@ -37,7 +37,11 @@ pipeline {
 
         stage('Ansible Check'){
             steps{
-              sh 'ansible --version'
+              script{
+                env.PATH = "${tfHome}:${env.PATH}"
+                sh 'ansible --version'
+              }
+
             }
         }
 
