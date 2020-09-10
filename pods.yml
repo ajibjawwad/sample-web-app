@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sample-webapps-project
-        image: jebro/webapps
+        image: jebro/webapps:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
