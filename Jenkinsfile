@@ -15,14 +15,28 @@ pipeline {
 
         stage('Build Package'){
             steps{
-              def mvn_version =
               sh  "${mvnCMD} clean package"
             }
         }
 
-        stage('Docker build'){
-            step{
-              sh 'docker build -t jebro/webapps:1.0'
+        stage('Docker Build'){
+            steps{
+              sh 'docker build -t jebro/webapps:1.0 .'
+            }
+        }
+
+        stage('Docker Push'){
+            steps{
+              withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
+                sh "docker login -u jebro -p ${dockerpwd}"
+              }
+              sh 'docker push jebro/webapps:1.0'
+            }
+        }
+
+        stage('Deploy Apps'){
+            steps{
+              sh 'ansible-playbook ansible-deploy.yml'
             }
         }
     }
