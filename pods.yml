@@ -5,16 +5,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: webapps-project
+      app: webapps
   replicas: 2
+
   template:
     metadata:
       labels:
-        app: webapps-project
+        app: webapps
+
     spec:
       containers:
-      - name: webapps-project
-        image: jebro/webapps:1.0
+      - name: webapps
+        image: jebro/webapps
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

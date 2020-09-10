@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: webapps-service
   labels:
-    app: webapps-project
+    app: webapps
 spec:
   selector:
-    app: webapps-project
+    app: webapps
   type: LoadBalancer
   ports:
     - port: 8080
