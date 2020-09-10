@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-webapps-deployment
-  labels:
-    role: sample-webapps-project
 spec:
   selector:
     matchLabels:
